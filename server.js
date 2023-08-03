@@ -59,10 +59,10 @@ app.get("/", (req, res) => {
 // INDEX - GET - /stocks - gets all stocks
 app.get("/stock", async (req, res) => {
     try {
-      // fetch all people from database
-      const people = await Stock.find({});
+      // fetch all stock from database
+      const stock = await Stock.find({});
       // send json of all stocks
-      res.json(people);
+      res.json(stock);
     } catch (error) {
       // send error as JSON
       res.status(400).json({ error });
@@ -96,7 +96,7 @@ app.get("/stock/:id", async (req, res) => {
 // UPDATE ROUTE
 app.put("/stock/:id", async (req, res) => {
   try {
-    // send all people
+    // send all stock
     const stock = await Stock.findByIdAndUpdate(req.params.id, req.body, {
         new: true,
         });
@@ -109,7 +109,7 @@ app.put("/stock/:id", async (req, res) => {
   }
 });
 
-// DESTROY - DELETE - /people/:id - delete a stock person
+// DESTROY - DELETE - /stock/:id - delete a stock person
 app.delete("/stock/:id", async (req, res) => {
     try {
         // delete the person
